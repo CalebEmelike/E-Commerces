@@ -21,8 +21,8 @@ A modern e-commerce platform built with FastAPI and SQLite, featuring a responsi
 
 1. Clone the repository:
 
-git clone <repository-url>
-cd ECommerce
+git clone https://github.com/CalebEmelike/E-Commerces.git
+cd ECommerces
 
 2. Create and activate virtual environment:
 
