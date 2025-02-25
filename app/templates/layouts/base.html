@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'components/head.html' %}
+<body>
+  {% include 'components/svg-icons.html' %}
+  {% include 'components/preloader.html' %}
+  {% include 'components/search-box.html' %}
+  {% include 'components/header.html' %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'components/quick-view.html' %}
+  {% include 'components/cart-modal.html' %}
+  {% include 'components/login-modal.html' %}
+  {% include 'components/register-modal.html' %}
+  {% include 'components/footer.html' %}
+
+  <script src="{{ url_for('static', path='js/jquery-1.11.0.min.js') }}"></script>
+  <script src="{{ url_for('static', path='js/plugins.js') }}"></script>
+  <script src="{{ url_for('static', path='js/script.js') }}"></script>
+  <script src="{{ url_for('static', path='js/auth.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

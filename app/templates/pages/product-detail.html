@@ -1,0 +1,85 @@
+{% extends "layouts/base.html" %} 
+
+{% block content %}
+<section class="single-product padding-large">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="product-image">
+          <img
+            src="{{ product.image_url }}"
+            alt="{{ product.name }}"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="product-info">
+          <div class="element-header">
+            <h2 class="product-title">{{ product.name }}</h2>
+            <div class="price mt-3">
+              <span class="regular-price"
+                >${{ "%.2f"|format(product.price) }}</span
+              >
+            </div>
+          </div>
+          <div class="product-description mt-4">
+            <p>{{ product.description }}</p>
+          </div>
+          <div class="cart-wrap mt-5">
+            <div class="color-options mb-4">
+              <h5>Category:</h5>
+              <span class="text-muted">{{ product.category }}</span>
+            </div>
+            <div class="quantity d-flex align-items-center mb-4">
+              <h5 class="me-3">Quantity:</h5>
+              <div class="d-flex">
+                <button
+                  type="button"
+                  class="qty-number border-0"
+                  id="decrement-btn"
+                >
+                  -
+                </button>
+                <input
+                  type="text"
+                  id="quantity_count"
+                  name="quantity_count"
+                  value="1"
+                  class="text-center"
+                />
+                <button
+                  type="button"
+                  class="qty-number border-0"
+                  id="increment-btn"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div class="cart-buttons d-flex">
+              <button
+                class="btn btn-sm btn-black me-3"
+                id="add-to-cart-btn"
+              >
+                Add to Cart
+                <svg class="cart-outline" width="16" height="16">
+                  <use xlink:href="#cart-outline"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 
+
+{% block scripts %}
+<script>
+  const productId = {{ product.id }};
+</script>
+<script src="{{ url_for('static', path='js/product-detail.js') }}"></script>
+
+{% endblock %}
